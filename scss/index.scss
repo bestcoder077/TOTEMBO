@@ -1,0 +1,568 @@
+@import 'main';
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      border: none;
+}
+
+.container {
+      margin: 0 auto;
+      max-width: 1440px;
+}
+
+hr {
+      width: 100%;
+      height: 2px;
+      background: #C4C4C4;
+}
+
+body {
+      background: #fafafa;
+}
+
+.bars {
+      width: 20px;
+      height: 20px;
+      display: none;
+
+      span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            margin-bottom: 4px;
+      }
+}
+
+header {
+      width: 100%;
+
+      nav {
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+
+            .container {
+                  width: 100%;
+            }
+
+            .nav__content {
+                  display: grid;
+            }
+
+            .nav__top {
+                  padding: 10px;
+                  width: 100%;
+                  display: grid;
+                  grid-template-columns: 2% 96% 2%;
+                  align-items: center;
+                  margin: auto;
+            }
+
+            .nav__bottom {
+                  padding: 10px;
+                  width: 100%;
+                  display: grid;
+                  grid-template-columns: repeat(2, auto);
+
+                  .nav__list {
+                        display: grid;
+                        grid-template-columns: repeat(6, auto);
+                        font-family: 'Montserrat';
+                        @include setFont(16, 400, 19.5, #323232);
+
+                        a {
+                              color: #323232;
+                        }
+                  }
+
+                  .nav__left {
+                        display: grid;
+                        grid-template-columns: repeat(4, auto);
+                        gap: 15px;
+                        justify-content: right;
+                  }
+            }
+      }
+}
+
+.clocks {
+      &__contents {
+            display: grid;
+            grid-template-areas:
+                  'a b'
+                  'a c';
+            gap: 30px;
+            justify-content: center;
+      }
+
+      .clock {
+            position: relative;
+            width: 340px;
+            height: 385px;
+            padding: 20px 10px;
+            border-radius: 10px;
+            background: #E1E1E1;
+
+            &__top {
+                  display: grid;
+                  grid-template-columns: repeat(2, auto);
+
+                  &__left {
+                        span {
+                              border-radius: 10px;
+                              padding: 10px 30px;
+                              background: #323232;
+                              font-family: 'Montserrat';
+                              @include setFont(16, 400, 24, #FFFFFF)
+                        }
+                  }
+
+                  &__right {
+                        display: grid;
+                        justify-content: right;
+
+                        .icons {
+                              display: grid;
+                              gap: 15px;
+
+                              .icon {
+                                    display: grid;
+                                    width: 50px;
+                                    height: 50px;
+                                    background: #FFFFFF;
+                                    border-radius: 10px;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    img {
+                                          width: 18px;
+                                          height: 18px;
+
+                                          path {
+                                                fill: red;
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
+
+            &__center {
+                  position: absolute;
+                  display: grid;
+                  grid-template-columns: repeat(1, auto);
+                  left: 29%;
+                  gap: 32px;
+                  top: 20px;
+
+                  img {
+                        justify-self: center;
+                        width: 125px;
+                        height: 242px;
+                  }
+
+                  &__text {
+                        text-align: center;
+
+                        h1 {
+                              font-family: 'Montserrat';
+                              @include setFont(20, 700, 24, #000000);
+                              margin-bottom: 10px;
+                        }
+
+                        h2 {
+                              font-family: 'Montserrat';
+                              @include setFont(18, 400, 22, #000000);
+                        }
+                  }
+            }
+      }
+
+      .clock:nth-child(1) {
+            width: 690px;
+            height: 800px;
+            grid-area: a;
+
+            .clock__center {
+                  top: 25%;
+                  left: 20%;
+                  display: grid;
+                  text-align: center;
+                  align-items: center;
+                  grid-template-columns: repeat(2, auto);
+
+                  img {
+                        width: 218px;
+                        height: 422px;
+                  }
+            }
+      }
+
+      .clock:nth-child(2) {
+            grid-area: b;
+      }
+
+      .clock:nth-child(3) {
+            grid-area: c;
+      }
+}
+
+.leaders {
+      margin: 50px 0;
+
+      &__contents {
+
+            &__text {
+                  text-align: center;
+                  margin-bottom: 40px;
+                  letter-spacing: 2.5px;
+                  text-transform: uppercase;
+                  font-family: 'Montserrat';
+                  @include setFont(22, 400, 27, #000000);
+            }
+
+            .clockss {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+                  gap: 30px;
+            }
+
+            .clockk {
+                  justify-items: center;
+                  justify-self: center;
+                  position: relative;
+                  width: 248px;
+                  height: 317px;
+                  padding: 20px 10px;
+                  border-radius: 10px;
+                  background: #E1E1E1;
+
+                  .clock__top {
+                        display: grid;
+                        grid-template-columns: repeat(2, auto);
+
+                        &__left {
+                              span {
+                                    border-radius: 10px;
+                                    padding: 6px 16px;
+                                    background: #323232;
+                                    font-family: 'Montserrat';
+                                    @include setFont(12, 400, 24, #FFFFFF)
+                              }
+                        }
+
+                        &__right {
+                              display: grid;
+                              justify-content: right;
+
+                              .icons {
+                                    display: grid;
+                                    gap: 15px;
+
+                                    .icon {
+                                          display: grid;
+                                          width: 40px;
+                                          height: 40px;
+                                          background: #FFFFFF;
+                                          border-radius: 10px;
+                                          justify-content: center;
+                                          align-items: center;
+
+                                          img {
+                                                width: 18px;
+                                                height: 18px;
+
+                                                path {
+                                                      fill: red;
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                  }
+
+                  .clock__center {
+                        position: absolute;
+                        display: grid;
+                        grid-template-columns: repeat(1, auto);
+                        left: 22%;
+                        gap: 32px;
+                        top: 20px;
+
+                        img {
+                              justify-self: center;
+                              width: 96px;
+                              height: 185px;
+                        }
+
+                        &__text {
+                              text-align: center;
+
+                              h1 {
+                                    font-family: 'Montserrat';
+                                    @include setFont(20, 700, 24, #000000);
+                                    margin-bottom: 10px;
+                              }
+
+                              h2 {
+                                    font-family: 'Montserrat';
+                                    @include setFont(18, 400, 22, #000000);
+                              }
+                        }
+                  }
+            }
+      }
+}
+
+.news {
+      &__contents {
+            &__text {
+                  text-align: center;
+                  margin-bottom: 40px;
+                  letter-spacing: 2.5px;
+                  text-transform: uppercase;
+                  font-family: 'Montserrat';
+                  @include setFont(22, 400, 27, #000000);
+            }
+
+            &__cards {
+                  display: grid;
+                  grid-template-areas:
+                        'a a b c'
+                        'a a f f'
+                        'd e f f'
+                  ;
+                  gap: 30px;
+                  justify-content: center;
+
+                  .card1 {
+                        grid-area: a;
+                  }
+
+                  .card2 {
+                        grid-area: b;
+                  }
+
+                  .card3 {
+                        grid-area: c;
+                  }
+
+                  .card4 {
+                        grid-area: d;
+                  }
+
+                  .card5 {
+                        grid-area: e;
+                  }
+
+                  .card6 {
+                        grid-area: f;
+                  }
+
+                  .big {
+                        width: 525px;
+                        height: 360px;
+
+                        .info {
+                              padding: 15px 30px;
+                        }
+                  }
+
+                  .small {
+                        width: 250px;
+                        height: 250px;
+
+                        .info {
+                              padding: 10px;
+                        }
+                  }
+
+                  .card {
+                        padding: 10px 10px;
+                        background: linear-gradient(rgba(32, 32, 32, 0.5), rgba(32, 32, 32, 0.5)), url("../images/bg-news.png");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        display: flex;
+                        align-items: start;
+                        justify-content: start;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        .info {
+                              border-radius: 8px;
+                              background: #FFFFFF;
+                              text-transform: uppercase;
+                              font-family: 'Montserrat';
+                              @include setFont(16, 400, 16, #323232);
+                        }
+
+                        .about {
+                              font-family: 'Montserrat';
+                              @include setFont(22, 700, 24, #FFFFFF);
+                        }
+
+                        .description {
+                              font-family: 'Montserrat';
+                              @include setFont(18, 400, 22, #E1E1E1);
+                        }
+
+                        .time {
+                              display: flex;
+                              gap: 10px;
+                              @include setFont(16, 400, 22, #FFFFFF);
+                        }
+                  }
+            }
+      }
+}
+
+footer {
+      padding: 30px;
+      margin-top: 115px;
+      background: #FFFFFF;
+
+      .footer__contents {
+            display: grid;
+            grid-template-areas:
+                  'a b c'
+                  'a b d';
+            gap: 30px;
+
+            h1 {
+                  font-family: 'Montserrat';
+                  @include setFont(18, 400, 18, #323232);
+                  letter-spacing: 2.5px;
+            }
+
+            .links {
+                  margin-top: 30px;
+                  gap: 5px;
+                  display: grid;
+                  grid-template-columns: repeat(1);
+
+                  a {
+                        color: #323232;
+                  }
+            }
+
+            .about {
+                  font-family: 'Montserrat';
+                  @include setFont(18, 400, 16, #323232);
+            }
+
+            .goods {
+                  grid-area: a;
+            }
+
+            .buyers {
+                  grid-area: b;
+            }
+
+            .buyers2 {
+                  grid-area: c;
+            }
+
+            .social {
+                  grid-area: d;
+
+                  .icons {
+                        display: grid;
+                        margin-top: 30px;
+                        grid-template-columns: repeat(4, 20px);
+                        gap: 10px;
+                  }
+            }
+      }
+}
+
+@include media(768px) {
+      .clocks {
+            &__contents {
+                  grid-template-areas:
+                        'a'
+                        'b'
+                        'c';
+            }
+
+            .clock:nth-child(1) {
+                  width: 340px;
+                  height: 385px;
+
+                  .clock__center {
+                        display: grid;
+                        grid-template-columns: repeat(1, auto);
+                        left: 29%;
+                        gap: 32px;
+                        top: 20px;
+
+                        img {
+                              justify-self: center;
+                              width: 125px;
+                              height: 242px;
+                        }
+                  }
+            }
+      }
+
+      .news {
+            &__contents {
+                  &__cards {
+                        grid-template-areas:
+                              'a a'
+                              'b c'
+                              'd e'
+                              'f f';
+                  }
+            }
+      }
+}
+
+@include media(480px) {
+      header {
+            nav {
+                  .nav__bottom {
+                        .nav__list {
+                              display: none;
+                        }
+                  }
+                  .bars {
+                        display: block;
+                  }
+            }
+      }
+
+      .news {
+            &__contents {
+                  &__cards {
+                        grid-template-areas:
+                              'a'
+                              'b'
+                              'c'
+                              'd'
+                              'e'
+                              'f';
+
+                        .big {
+                              width: 250px;
+                              height: 250px;
+                        }
+                  }
+            }
+      }
+
+      footer {
+            .footer__contents {
+                  display: grid;
+                  grid-template-areas:
+                        'a'
+                        'b'
+                        'c'
+                        'd';
+            }
+      }
+}
